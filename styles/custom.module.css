@@ -1,0 +1,19 @@
+.categories {
+    color: blueviolet;
+    font-size: 16;
+    font-weight: bold;
+}
+
+.news_card {
+    border: 10px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    width: 500px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.input_form {
+    width: 550px;
+    border: 1px solid grey;
+    padding: 20px;
+}

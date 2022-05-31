@@ -1,40 +1,36 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import styles from '../styles/Home.module.css'
+import styles from '../../styles/Home.module.css'
+import {news} from '../../example.js'
 
-export default function Home({ postData }) {
+export default function IndexNews({ postData }) {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
         <h1 className={styles.title}>
-          NEXT JS TRAINING
+          Halaman News
         </h1>
+        <small>Looping news array with set read dynamic route</small>
         <div className={styles.grid}>
+          {news.map((item, index) => (
             <Link 
-              href="/about"
+              href={{pathname:'/news/read', query:{'title':item.title, 'content':item.content, 'categori':item.categori}}}
+              as={`/news/${item.title}`}
             >
               <a className={styles.card}>
-                <h2>About &rarr;</h2>
-                <p>Example about page</p>
+                <center><Image 
+                  src={item.image}
+                  quality={100}
+                  width={100}
+                  height={80}
+                  loading="lazy"
+                /></center>
+                <h2>{item.title} &rarr;</h2>
+                <p>Category {item.categori}</p>
               </a>
             </Link>
-            <Link 
-              href="/news"
-            >
-              <a className={styles.card}>
-                <h2>News &rarr;</h2>
-                <p>Example news page</p>
-              </a>
-            </Link>
-            <Link 
-              href="/news-dinamic"
-            >
-              <a className={styles.card}>
-                <h2>News From API &rarr;</h2>
-                <p>Example news page</p>
-              </a>
-            </Link>
+          ))}
         </div>
       </main>
 
