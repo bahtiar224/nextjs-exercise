@@ -16,7 +16,7 @@ export default function Home({ postData }) {
             >
               <a className={styles.card}>
                 <h2>Fetching &rarr;</h2>
-                <p>Example about page</p>
+                <p>Example fetching page</p>
               </a>
             </Link>
             <Link 

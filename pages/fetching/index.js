@@ -16,7 +16,7 @@ export default function Fetching() {
         </h1>
         <div className={styles.grid}>
             <Link 
-              href="/Fetching"
+              href="/fetching/csr"
             >
               <a className={styles.card}>
                 <h2>CSR &rarr;</h2>
@@ -24,29 +24,29 @@ export default function Fetching() {
               </a>
             </Link>
             <Link 
-              href="/Fetching"
+              href="/fetching/ssr"
             >
               <a className={styles.card}>
                 <h2>SSR &rarr;</h2>
-                <p>Example csr fetching</p>
+                <p>Example ssr fetching</p>
               </a>
             </Link>
             <Link 
-              href="/Fetching"
+              href="/fetching/ssg"
             >
               <a className={styles.card}>
                 <h2>SSG &rarr;</h2>
-                <p>Example csr fetching</p>
+                <p>Example ssg fetching</p>
               </a>
             </Link>
             <Link 
-              href="/Fetching"
+              href={{pathname:"/fetching/isr"}}
             >
               <a className={styles.card}>
                 <h2>ISR &rarr;</h2>
-                <p>Example csr fetching</p>
+                <p>Example isr fetching</p>
               </a>
-            </Link>
+            </Link> 
         </div>
       </main>
 
