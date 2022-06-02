@@ -4,7 +4,7 @@ import Link from 'next/link';
 import styles from '../../styles/Home.module.css';
 import {news} from '../../example.js';
 
-export default function IndexNews({ postData }) {
+export default function IndexNews() {
   return (
     <div className={styles.container}>
       <main className={styles.main}>

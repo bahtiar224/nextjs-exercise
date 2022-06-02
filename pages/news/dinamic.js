@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../../styles/Home.module.css';
 import custom from '../../styles/custom.module.css';
-import React, {useEffect, useState} from 'react';
+import React, { useState, useEffect } from 'react'
 
 export default function DinamicNews() {
   const [news, setNews] = useState([]);
@@ -23,7 +23,6 @@ export default function DinamicNews() {
   }
 
   const submitNews = async () => {
-    console.log("babab");
     const response = await fetch("/api/news", {
       method: "POST",
       body: JSON.stringify({
@@ -65,24 +64,31 @@ export default function DinamicNews() {
         </div>
         <hr/>
         <div className={styles.grid}>
-          {news.map((item, index) => (
-            <Link 
-              href={{pathname:'/news/read', query:{'title':item.title, 'content':item.content, 'categori':item.categori}}}
-              as={`/news/${item.title}`}
-            >
-              <a className={styles.card}>
-                <center><Image 
-                  src={item.image}
-                  quality={100}
-                  width={100}
-                  height={80}
-                  loading="lazy"
-                /></center>
-                <h2>{item.title} &rarr;</h2>
-                <p>Category {item.categori}</p>
-              </a>
-            </Link>
-          ))}
+          {
+            
+              news && news.length > 0 ? (
+                news.map((item, index) => (
+                  <Link 
+                    href={{pathname:'/news/read', query:{'title':item.title, 'content':item.content, 'categori':item.categori}}}
+                    as={`/news/${item.title}`}
+                  >
+                    <a className={styles.card}>
+                      <center><Image 
+                        src={item.image}
+                        quality={100}
+                        width={100}
+                        height={80}
+                        loading="lazy"
+                      /></center>
+                      <h2>{item.title} &rarr;</h2>
+                      <p>Category {item.categori}</p>
+                    </a>
+                  </Link>
+                ))
+              ):(
+                <p>Loading . . .</p>
+              )
+          }
         </div>
       </main>
 
