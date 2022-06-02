@@ -1,12 +1,10 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { useEffect, useState }  from 'react';
-import styles from '../../styles/Home.module.css';
-import Link from 'next/link';
-import custom from '../../styles/custom.module.css';
+import styles from '@styles/Home.module.css';
+import dynamic from 'next/dynamic';
 
 export default function Csr(props) {
     const seafood = props.meals;
+    const Detail = dynamic(() => import('@components/detail'))
 
     return (
         <div className={styles.container}>
@@ -18,19 +16,7 @@ export default function Csr(props) {
             <h1 className={styles.title}>
                 Detail Page
             </h1>
-            <div className={custom.news_card}>
-                <h3>{seafood.strMeal}</h3>
-                <p className={custom.categories}>Category : {seafood.strCategory}</p>
-                <p>{seafood.strInstructions}</p>
-                <Image 
-                    src={seafood.strMealThumb}
-                    quality={100}
-                    width={450}
-                    height={300}
-                    loading="lazy"
-                />
-                
-            </div>
+            <Detail meals={seafood}/>
         </main>
         </div>
     )
