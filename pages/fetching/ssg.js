@@ -23,7 +23,8 @@ export default function Ssg(props) {
                         
                         seafood.map((item, index) => (
                             <Link 
-                            href="#"
+                                href={{pathname:"/fetching/id"}}
+                                as={`/fetching/${item.idMeal}`}
                             >
                             <a className={styles.card}>
                                 <center><Image 

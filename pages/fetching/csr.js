@@ -34,7 +34,10 @@ export default function Csr() {
                         
                         seafood.map((item, index) => (
                             <Link 
-                            href="#"
+                            href={{ 
+                                pathname:"/fetching/id"
+                            }}
+                            as={`/fetching/${item.idMeal}`}
                             >
                             <a className={styles.card}>
                                 <center><Image 
