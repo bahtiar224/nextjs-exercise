@@ -22,6 +22,7 @@ export default function Ssg(props) {
                     seafood && seafood.length > 0 ? (
                         
                         seafood.map((item, index) => (
+                            <div key={item.idMeal}>
                             <Link 
                                 href={{pathname:"/fetching/id"}}
                                 as={`/fetching/${item.idMeal}`}
@@ -38,6 +39,7 @@ export default function Ssg(props) {
                                 <small>{item.strMeal} &rarr;</small>
                             </a>
                             </Link>
+                            </div>
                         )
                     )):(
                         <p>Loading . . .</p>

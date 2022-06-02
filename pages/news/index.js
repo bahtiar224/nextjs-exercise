@@ -14,6 +14,7 @@ export default function IndexNews() {
         <small>Looping news array with set read dynamic route</small>
         <div className={styles.grid}>
           {news.map((item, index) => (
+          <div key={index}>
             <Link 
               href={{pathname:'/news/read', query:{'title':item.title, 'content':item.content, 'categori':item.categori}}}
               as={`/news/${item.title}`}
@@ -25,11 +26,13 @@ export default function IndexNews() {
                   width={100}
                   height={80}
                   loading="lazy"
+                  
                 /></center>
                 <h2>{item.title} &rarr;</h2>
                 <p>Category {item.categori}</p>
               </a>
             </Link>
+            </div>
           ))}
         </div>
       </main>

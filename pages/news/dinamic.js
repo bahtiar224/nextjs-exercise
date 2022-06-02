@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../../styles/Home.module.css';
 import custom from '../../styles/custom.module.css';
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function DinamicNews() {
   const [news, setNews] = useState([]);
@@ -46,17 +46,17 @@ export default function DinamicNews() {
       <main className={styles.main}>
         <div className={custom.input_form}>
             <h3>Form Input News</h3>
-            <label for="">Title:</label><br/>
+            <label >Title:</label><br/>
             <input type="text" placeholder='Title' onChange={(e) => setTitles(e.target.value)} /><br/>
-            <label for="">Category:</label><br/>
+            <label >Category:</label><br/>
             <select name="categori" id="categori" onChange={(e) => setCategori(e.target.value)}>
               <option value="Hot news">Hot news</option>
               <option value="Trending News">Trending News</option>
               <option value="Headline News">Headline News</option>
             </select><br/>
-            <label for="">Content:</label><br/>
+            <label >Content:</label><br/>
             <textarea id="content" name="content" rows="4" cols="50" onChange={(e) => setContent(e.target.value)}></textarea><br/>
-            <label for="">Image:</label><br/>
+            <label >Image:</label><br/>
             <input type="text" onChange={(e) => setBanner(e.target.value)} placeholder='Banner url'/><br/>
             <input type="text" onChange={(e) => setThumbnail(e.target.value)} placeholder='Thumbnai path'/>
             <br/>
@@ -65,9 +65,9 @@ export default function DinamicNews() {
         <hr/>
         <div className={styles.grid}>
           {
-            
               news && news.length > 0 ? (
                 news.map((item, index) => (
+                  <div key={index}>
                   <Link 
                     href={{pathname:'/news/read', query:{'title':item.title, 'content':item.content, 'categori':item.categori}}}
                     as={`/news/${item.title}`}
@@ -84,6 +84,7 @@ export default function DinamicNews() {
                       <p>Category {item.categori}</p>
                     </a>
                   </Link>
+                  </div>
                 ))
               ):(
                 <p>Loading . . .</p>

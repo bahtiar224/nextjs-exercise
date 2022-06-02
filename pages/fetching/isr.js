@@ -22,6 +22,7 @@ export default function Isr(props) {
                     seafood && seafood.length > 0 ? (
                         
                         seafood.map((item, index) => (
+                            <div key={item.idMeal}>
                             <Link 
                             href="#"
                             >
@@ -37,6 +38,7 @@ export default function Isr(props) {
                                 <small>{item.strMeal} &rarr;</small>
                             </a>
                             </Link>
+                            </div>
                         )
                     )):(
                         <p>Loading . . .</p>
