@@ -1,46 +1,50 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import styles from '../../styles/Home.module.css'
 import Link from 'next/link'
-import styles from '../styles/Home.module.css'
 
-export default function Home({ postData }) {
+export default function Fetching() {
   return (
     <div className={styles.container}>
+    <Head>
+        <title>Fetching</title>
+        <link rel="icon" href="/favicon.ico"/>
+    </Head>
       <main className={styles.main}>
         <h1 className={styles.title}>
-          NEXT JS TRAINING
+          Fetching Page
         </h1>
         <div className={styles.grid}>
             <Link 
-              href="/fetching"
+              href="/Fetching"
             >
               <a className={styles.card}>
-                <h2>Fetching &rarr;</h2>
-                <p>Example about page</p>
+                <h2>CSR &rarr;</h2>
+                <p>Example csr fetching</p>
               </a>
             </Link>
             <Link 
-              href="/about"
+              href="/Fetching"
             >
               <a className={styles.card}>
-                <h2>About &rarr;</h2>
-                <p>Example about page</p>
+                <h2>SSR &rarr;</h2>
+                <p>Example csr fetching</p>
               </a>
             </Link>
             <Link 
-              href="/news"
+              href="/Fetching"
             >
               <a className={styles.card}>
-                <h2>News &rarr;</h2>
-                <p>Example news page</p>
+                <h2>SSG &rarr;</h2>
+                <p>Example csr fetching</p>
               </a>
             </Link>
             <Link 
-              href="/news/dinamic"
+              href="/Fetching"
             >
               <a className={styles.card}>
-                <h2>News From API &rarr;</h2>
-                <p>Example news page</p>
+                <h2>ISR &rarr;</h2>
+                <p>Example csr fetching</p>
               </a>
             </Link>
         </div>
