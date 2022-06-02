@@ -1,5 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import {news} from '../../example.js'
+import {news} from '../../example.js';
 
 export default function handler(req, res) {
     if(req.method == "GET"){

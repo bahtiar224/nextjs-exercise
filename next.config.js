@@ -6,7 +6,7 @@ const nextConfig = {
     // domains is an array of comma-separated strings
     // ['cdn.sanity.io', 'cdn.not-sanity.io', 'another domain']
     domains: ['www.w3schools.com','jatimsmart.id','www.themealdb.com'],
-}
+  }
 }
 
 module.exports = nextConfig

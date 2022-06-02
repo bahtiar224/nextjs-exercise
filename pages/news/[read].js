@@ -1,10 +1,10 @@
-import Head from 'next/head'
-import Image from 'next/image'
+import Head from 'next/head';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
-import styles from '../../styles/Home.module.css'
-import {news} from '../../example.js'
+import styles from '../../styles/Home.module.css';
+import {news} from '../../example.js';
 import React, {useEffect, useState} from 'react';
-import custom from '../../styles/custom.module.css'
+import custom from '../../styles/custom.module.css';
 
 
 export default function Read() {
