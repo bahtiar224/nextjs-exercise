@@ -33,12 +33,12 @@ export default function Csr() {
             <div className={styles.grid}>
                 {
                     seafood.map((item) => (
-                        <div key={item.idMeal}>
                             <Link 
                             href={{ 
                                 pathname:"/fetching/id"
                             }}
                             as={`/fetching/${item.idMeal}`}
+                            key={item.idMeal}
                             >
                                 <a className={styles.card}>
                                     <center>
@@ -55,7 +55,6 @@ export default function Csr() {
                                     <small>{item.strMeal} &rarr;</small>
                                 </a>
                             </Link>
-                        </div>
                     ))
                 }
             </div>

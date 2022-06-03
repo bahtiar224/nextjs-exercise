@@ -23,10 +23,10 @@ export default function Csr(props) {
                     seafood && seafood.length > 0 ? (
                         
                         seafood.map((item, index) => (
-                            <div key={item.idMeal}>
                             <Link 
                                 href={{pathname:"/fetching/id"}}
                                 as={`/fetching/${item.idMeal}`}
+                                key={item.idMeal}
                             >
                             <a className={styles.card}>
                                 <center><Image 
@@ -40,7 +40,6 @@ export default function Csr(props) {
                                 <small>{item.strMeal} &rarr;</small>
                             </a>
                             </Link>
-                            </div>
                         )
                     )):(
                         <p>Loading . . .</p>

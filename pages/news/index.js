@@ -14,10 +14,10 @@ export default function IndexNews() {
         <small>Looping news array with set read dynamic route</small>
         <div className={styles.grid}>
           {news.map((item, index) => (
-          <div key={index}>
             <Link 
               href={{pathname:'/news/read', query:{'title':item.title, 'content':item.content, 'categori':item.categori}}}
               as={`/news/${item.title}`}
+              key={index}
             >
               <a className={styles.card}>
                 <center><Image 
@@ -32,7 +32,6 @@ export default function IndexNews() {
                 <p>Category {item.categori}</p>
               </a>
             </Link>
-            </div>
           ))}
         </div>
       </main>

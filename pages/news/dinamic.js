@@ -67,10 +67,10 @@ export default function DinamicNews() {
           {
               news && news.length > 0 ? (
                 news.map((item, index) => (
-                  <div key={index}>
                   <Link 
                     href={{pathname:'/news/read', query:{'title':item.title, 'content':item.content, 'categori':item.categori}}}
                     as={`/news/${item.title}`}
+                    key={index}
                   >
                     <a className={styles.card}>
                       <center><Image 
@@ -84,7 +84,6 @@ export default function DinamicNews() {
                       <p>Category {item.categori}</p>
                     </a>
                   </Link>
-                  </div>
                 ))
               ):(
                 <p>Loading . . .</p>
