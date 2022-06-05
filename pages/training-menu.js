@@ -3,24 +3,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../styles/Home.module.css';
 
-export default function Home({ postData }) {
+export default function Training({ postData }) {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
-        <h1>
-          APOLLO CLIENT, GRAPHQL & MUI 4 EXERCISE
-        </h1>
-        <div className={styles.grid}>
-            <Link 
-              href="/product"
-            >
-              <a className={styles.card}>
-                <h2>Product &rarr;</h2>
-                <p>Product home page</p>
-              </a>
-            </Link>
-        </div>
-        <h1>
+        <h1 className={styles.title}>
           NEXT JS TRAINING
         </h1>
         <div className={styles.grid}>
@@ -54,6 +41,14 @@ export default function Home({ postData }) {
               <a className={styles.card}>
                 <h2>News From API &rarr;</h2>
                 <p>Example news page</p>
+              </a>
+            </Link>
+            <Link 
+              href="/categories"
+            >
+              <a className={styles.card}>
+                <h2>Apollo Graphql &rarr;</h2>
+                <p>Example fetching page</p>
               </a>
             </Link>
         </div>
