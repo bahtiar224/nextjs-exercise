@@ -1,13 +1,9 @@
 import { useRouter } from 'next/router';
-import styles from '../../styles/Home.module.css';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import Image from 'next/image';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import { GET_PRODUCT_BY_SKU,SUBSCRIBE }  from '@/schema';
 import {useQuery,useMutation} from '@apollo/client';
@@ -21,6 +17,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import { useState } from 'react';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
+import { LoadingProductDetail } from '@components/loading';
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -97,7 +94,9 @@ export default function Read() {
           sku: sku
       }
   });
-  if (loading) return null;
+  if (loading) return(
+    <LoadingProductDetail />
+  );
   if (error) return `Error! ${error}`;
 
   const subscribeHandling = async () => {

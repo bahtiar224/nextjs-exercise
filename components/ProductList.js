@@ -9,7 +9,7 @@ import { useQuery } from '@apollo/client';
 import {GET_PRODUCT_BY_CATEGORY} from '@/schema';
 import { useState} from 'react';
 import Link from 'next/link';
-import Skeleton from '@material-ui/lab/Skeleton';
+import { LoadingProductList } from '@components/loading';
 
 const useStyles = makeStyles((theme) => ({
   cardCustom:{
@@ -29,19 +29,7 @@ export function ProductList(props) {
   })
 
   if (loading) return (
-    <Grid container spacing={3}>
-    {
-      Array.from(new Array(16)).map((index) =>(
-        <Grid item xs={4} key={index}>
-          <div>
-            <Skeleton variant="rect" width="100%" height={300} />
-            <Skeleton variant="text" height={40}/>
-            <Skeleton variant="text" height={40} width="40%"/>
-          </div>
-        </Grid>
-      ))
-    }
-    </Grid>
+    <LoadingProductList />
   );
   
   if (error) return `Error! ${error}`;
@@ -84,15 +72,14 @@ export function ProductList(props) {
             </Grid>
           ))
           ): (
-            Array.from(new Array(16)).map((index) =>(
-            <Grid item xs={4} key={index}>
-              <div>
-                <Skeleton variant="rect" width="100%" height={300} />
-                <Skeleton variant="text" height={40}/>
-                <Skeleton variant="text" height={40} width="40%"/>
-              </div>
+            <Grid item 
+              xs={12}
+              sm={4}
+              lg={4} >
+              <Typography variant="body2" color="textSecondary" component="p">
+                Oops Sorry, there are no products listed here
+              </Typography>
             </Grid>
-            ))
           )
         }
       </Grid>
