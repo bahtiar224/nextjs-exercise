@@ -28,9 +28,6 @@ export function ProductList(props) {
       }
   })
 
-  if (loading) return null;
-  if (error) return `Error! ${error}`;
-
   if (loading) return (
     <Grid container spacing={3}>
     {
@@ -46,6 +43,8 @@ export function ProductList(props) {
     }
     </Grid>
   );
+  if (error) return `Error! ${error}`;
+
 
     return  (
       <Grid container spacing={3}>
