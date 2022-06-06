@@ -9,6 +9,7 @@ import { useQuery } from '@apollo/client';
 import {GET_PRODUCT_BY_CATEGORY} from '@/schema';
 import { useState} from 'react';
 import Link from 'next/link';
+import Skeleton from '@material-ui/lab/Skeleton';
 
 const useStyles = makeStyles((theme) => ({
   cardCustom:{
@@ -30,11 +31,26 @@ export function ProductList(props) {
   if (loading) return null;
   if (error) return `Error! ${error}`;
 
-  console.log(data);
+  if (loading) return (
+    <Grid container spacing={3}>
+    {
+      Array.from(new Array(16)).map((index) =>(
+        <Grid item xs={4} key={index}>
+          <div>
+            <Skeleton variant="rect" width="100%" height={300} />
+            <Skeleton variant="text" height={40}/>
+            <Skeleton variant="text" height={40} width="40%"/>
+          </div>
+        </Grid>
+      ))
+    }
+    </Grid>
+  );
 
     return  (
       <Grid container spacing={3}>
         {
+          data.category.products.items.length > 0 ? (
           data.category.products.items.map((item, index) => (
             <Grid item xs={4} key={index}>
               <Link
@@ -64,6 +80,17 @@ export function ProductList(props) {
               </Link>
             </Grid>
           ))
+          ): (
+            Array.from(new Array(16)).map((index) =>(
+            <Grid item xs={4} key={index}>
+              <div>
+                <Skeleton variant="rect" width="100%" height={300} />
+                <Skeleton variant="text" height={40}/>
+                <Skeleton variant="text" height={40} width="40%"/>
+              </div>
+            </Grid>
+            ))
+          )
         }
       </Grid>
     );

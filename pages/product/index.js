@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
   },
   linkMenu: {
     marginRight: 30
-  }
+  },
 }));
 
 function ResponsiveDrawer(props) {
@@ -91,7 +91,7 @@ function ResponsiveDrawer(props) {
     <div>
       <div className={classes.toolbar} />
       <Divider />
-      <List>
+      <List >
           {
             data.categories.items.map((item, index) => (
             <ListItem button divider key={index} 
