@@ -43,15 +43,19 @@ export function ProductList(props) {
     }
     </Grid>
   );
+  
   if (error) return `Error! ${error}`;
 
 
     return  (
-      <Grid container spacing={3}>
+      <Grid container spacing={4}>
         {
           data.category.products.items.length > 0 ? (
           data.category.products.items.map((item, index) => (
-            <Grid item xs={4} key={index}>
+            <Grid item 
+              xs={12}
+              sm={4}
+              lg={4} key={index}>
               <Link
                 href={{ pathname:`/product/${item.sku}`}}
               >

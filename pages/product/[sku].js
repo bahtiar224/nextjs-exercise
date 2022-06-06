@@ -30,11 +30,11 @@ const useStyles = makeStyles((theme) => ({
     cardCustom:{
       width:"90%",
       display: 'flex',
-      height:500,
       margin:"5%"
     },
     cover: {
-      width: 800,
+      height: '100%',
+      padding: 20
     },
     details: {
       display: 'flex',
@@ -121,56 +121,71 @@ export default function Read() {
     setEmail('');
   };
   return (
-      <center>
+      <div>
         {
           data.products.items.map(item => (
             <Card className={classes.cardCustom} key={item.id}>
-                <CardMedia
-                    className={classes.cover}
-                    image={item.image.url}
-                    title={item.name}
-                />
-                <div className={classes.details}>
+                <CardActionArea>
                     <CardContent className={classes.content}>
-                        <Typography component="h5" variant="h5" dangerouslySetInnerHTML={{ __html: item.name }} />
-                        <Typography variant="subtitle1" color="textSecondary" dangerouslySetInnerHTML={{ __html: item.description.html }} />
-                        <div>{ item.price_range.minimum_price.regular_price.currency}. { item.price_range.minimum_price.regular_price.value } -  { item.price_range.maximum_price.regular_price.currency}. { item.price_range.maximum_price.regular_price.value }</div>
+                    <Grid container spacing={4}>
+                      <Grid  
+                        xs={12}
+                        sm={6}
+                        lg={6}>
+                          <img 
+                              alt={item.name}
+                              src={item.image.url}
+                              style={{
+                                  width: '100%',
+                                  height: 'auto'
+                              }}
+                          />
+                      </Grid>
+                      <Grid  
+                        xs={12}
+                        sm={6}
+                        lg={6} style={{'padding':20}}>
+                          <Typography component="h5" variant="h5" dangerouslySetInnerHTML={{ __html: item.name }} />
+                            <Typography variant="subtitle1" color="textSecondary" dangerouslySetInnerHTML={{ __html: item.description.html }} />
+                            <div>{ item.price_range.minimum_price.regular_price.currency}. { item.price_range.minimum_price.regular_price.value } -  { item.price_range.maximum_price.regular_price.currency}. { item.price_range.maximum_price.regular_price.value }</div>
 
-                        <br/><br/>
-                        
-                        <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-                        Subscribe to get the latest product info
-                        </Button>
-                        <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-                          <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
-                          <DialogContent>
-                            <DialogContentText>
-                              To subscribe to this product, please enter your email address here. We will send updates
-                              occasionally.
-                            </DialogContentText>
-                            <TextField
-                              autoFocus
-                              margin="dense"
-                              id="name"
-                              label="Email Address"
-                              type="email"
-                              value={email}
-                              onChange={(e) => setEmail(e.target.value)}
-                              fullWidth
-                            />
-                          </DialogContent>
-                          <DialogActions>
-                            <Button onClick={handleClose} color="primary">
-                              Cancel
+                            <br/><br/>
+                            
+                            <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+                            Subscribe to get the latest product info
                             </Button>
-                            <Button 
-                              onClick={subscribeHandling} color="primary">
-                              Subscribe
-                            </Button>
-                          </DialogActions>
-                        </Dialog>
+                            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+                              <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+                              <DialogContent>
+                                <DialogContentText>
+                                  To subscribe to this product, please enter your email address here. We will send updates
+                                  occasionally.
+                                </DialogContentText>
+                                <TextField
+                                  autoFocus
+                                  margin="dense"
+                                  id="name"
+                                  label="Email Address"
+                                  type="email"
+                                  value={email}
+                                  onChange={(e) => setEmail(e.target.value)}
+                                  fullWidth
+                                />
+                              </DialogContent>
+                              <DialogActions>
+                                <Button onClick={handleClose} color="primary">
+                                  Cancel
+                                </Button>
+                                <Button 
+                                  onClick={subscribeHandling} color="primary">
+                                  Subscribe
+                                </Button>
+                              </DialogActions>
+                            </Dialog>
+                        </Grid>
+                      </Grid>
                     </CardContent>
-                </div>
+                </CardActionArea>
             </Card>
           ))
       }
@@ -179,6 +194,6 @@ export default function Read() {
           {message}
         </Alert>
       </Snackbar>
-      </center>
+      </div>
   )
 }
